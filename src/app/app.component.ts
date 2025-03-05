@@ -10,12 +10,17 @@ declare var $: any
   standalone: false,
   styleUrl: './app.component.scss'
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'ETicaretClient';
   constructor(private toastrService : CustomToastrService ){
     toastrService.message("Toastr","Mesaj",{
       messageType: ToastrMessageType.Info,
       position : ToastrPosition.BottomFullWidth
+    })
+  }
+  ngOnInit(): void {
+    $.get("https://localhost:7021/api/products",data=>{
+      console.log(data)
     })
   }
 }
