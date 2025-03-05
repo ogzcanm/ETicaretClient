@@ -6,6 +6,10 @@ import { AppComponent } from './app.component';
 import { AdminModule } from './admin/admin.module';
 import { UiModule } from './ui/ui.module';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+
+
 @NgModule({
   declarations: [
     AppComponent
@@ -13,9 +17,11 @@ import { UiModule } from './ui/ui.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
     AdminModule,
-    UiModule
-  ],
+    UiModule,
+    ToastrModule.forRoot()
+    ],
   providers: [
     provideClientHydration(withEventReplay())
   ],
