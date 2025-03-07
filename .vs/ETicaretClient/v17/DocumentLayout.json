@@ -25,6 +25,10 @@
           "SelectedChildIndex": 2,
           "Children": [
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "product.service.ts",
@@ -34,12 +38,7 @@
               "RelativeToolTip": "src\\app\\services\\common\\models\\product.service.ts",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
-              "WhenOpened": "2025-03-07T00:12:50.758Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+              "WhenOpened": "2025-03-07T00:12:50.758Z"
             },
             {
               "$type": "Document",
@@ -49,7 +48,7 @@
               "RelativeDocumentMoniker": "src\\app\\admin\\components\\products\\create\\create.component.ts",
               "ToolTip": "C:\\Users\\Administrator\\Desktop\\ETicaretUygulamas\u0131\\ETicaretClient\\src\\app\\admin\\components\\products\\create\\create.component.ts",
               "RelativeToolTip": "src\\app\\admin\\components\\products\\create\\create.component.ts",
-              "ViewState": "AgIAAAcAAAAAAAAAAAAAABUAAAAUAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
               "WhenOpened": "2025-03-06T23:50:52.596Z",
               "EditorCaption": ""
@@ -64,8 +63,7 @@
               "RelativeToolTip": "src\\app\\admin\\components\\products\\create\\create.component.html",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2025-03-06T23:50:41.727Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-06T23:50:41.727Z"
             }
           ]
         }
