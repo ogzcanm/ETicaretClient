@@ -13,10 +13,10 @@ declare var $: any
 export class AppComponent implements OnInit {
   title = 'ETicaretClient';
   constructor(private toastrService : CustomToastrService ){
-    toastrService.message("Toastr","Mesaj",{
-      messageType: ToastrMessageType.Info,
-      position : ToastrPosition.BottomFullWidth
-    })
+    // toastrService.message("Toastr","Mesaj",{
+    //   messageType: ToastrMessageType.Info,
+    //   position : ToastrPosition.BottomFullWidth
+    // })
   }
   ngOnInit(): void {
 
