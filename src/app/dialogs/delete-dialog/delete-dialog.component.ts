@@ -1,5 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { BaseDialog } from '../base/base-dialog';
 
 @Component({
   selector: 'app-delete-dialog',
@@ -7,13 +9,12 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
   templateUrl: './delete-dialog.component.html',
   styleUrl: './delete-dialog.component.scss'
 })
-export class DeleteDialogComponent{
+export class DeleteDialogComponent extends BaseDialog<DeleteDialogComponent>{
   constructor(
-    public dialogRef: MatDialogRef<DeleteDialogComponent>,
+    dialogRef: MatDialogRef<DeleteDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data : DeleteState,
-  ){}
-  close(): void {
-    this.dialogRef.close();
+  ){
+    super(dialogRef)
   }
 }
 
