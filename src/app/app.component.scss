@@ -1,0 +1,75 @@
+/* Sayfa genel düzenlemeleri */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9f9;  /* Daha açık ve ferah bir arka plan */
+    margin-top: 20px; /* Sayfanın üst kısmına boşluk ekledik */
+}
+
+/* Navbar düzenlemeleri */
+.navbar {
+    background-color: #e9ecef; /* Açık gri tonları */
+    padding: 15px 0; /* Daha fazla boşluk */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Yumuşak bir gölge */
+}
+
+/* Sağdaki öğeler için hizalama */
+.navbar-nav {
+    display: flex;
+    align-items: center;
+}
+
+/* Bağlantıların hover efekti */
+.navbar-nav .nav-item .nav-link {
+    padding: 8px 16px;
+    transition: all 0.3s ease;
+}
+
+.navbar-nav .nav-item .nav-link:hover {
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+}
+
+/* Button stilini güzelleştirme */
+.btn-outline-primary {
+    color: #007bff;
+    border-color: #007bff;
+    padding: 6px 12px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-primary:hover {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+}
+
+/* Navbarda kullanıcı bağlantıları (giriş, çıkış) için stil */
+.nav-item {
+    margin-left: 15px;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #343a40;  /* Koyu gri, ama çok sert değil */
+}
+
+.navbar-toggler {
+    border: 1px solid #343a40;
+}
+
+.navbar-toggler-icon {
+    background-color: #343a40;
+}
+
+/* Mobil cihazlarda navbar'ın düzenini iyileştirme */
+@media (max-width: 768px) {
+    .navbar-collapse {
+        text-align: center;
+    }
+    .navbar-nav {
+        flex-direction: column;
+    }
+}
