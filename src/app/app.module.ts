@@ -12,7 +12,7 @@ import { BaseComponent } from './base/base.component';
 import { HttpClientModule } from '@angular/common/http';
 import {JwtModule} from '@auth0/angular-jwt'
 import { LoginComponent } from './ui/components/login/login.component';
-import {GoogleLoginProvider, GoogleSigninButtonModule, SocialAuthServiceConfig, SocialLoginModule} from '@abacritt/angularx-social-login'
+import {FacebookLoginProvider, GoogleLoginProvider, GoogleSigninButtonModule, SocialAuthServiceConfig, SocialLoginModule} from '@abacritt/angularx-social-login'
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,6 +48,10 @@ import {GoogleLoginProvider, GoogleSigninButtonModule, SocialAuthServiceConfig, 
           {
             id: GoogleLoginProvider.PROVIDER_ID,
             provider: new GoogleLoginProvider("894462296372-vc7madqnhl9gtbopcm385v8udni2rsvf.apps.googleusercontent.com")
+          },
+          {
+            id : FacebookLoginProvider.PROVIDER_ID,
+            provider : new FacebookLoginProvider("3974447892801368")
           }
         ],
         onError: err => console.log(err)

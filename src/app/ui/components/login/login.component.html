@@ -15,12 +15,18 @@
         placeholder="Şifre">
     </div>
 
-    <!-- Google Sign-In butonunun üzerine FedCM özelliğini ekliyoruz -->
-    <asl-google-signin-button data-use_fedcm_for_prompt="true"></asl-google-signin-button>
+    <!-- Container for Google and Facebook buttons, aligned to the left -->
+    <div class="d-flex" style="gap: 10px; align-items: center;">
+      <!-- Google Sign-In Button -->
+      <asl-google-signin-button data-use_fedcm_for_prompt="true"></asl-google-signin-button>
+
+      <!-- Facebook Icon -->
+      <img src="images/facebook-icon.png" style="width: 30px; height: 30px; cursor: pointer;" (click)="facebookLogin()">
+    </div>
 
     <br />
     <button style="margin-top: 5px;" type="submit" class="btn btn-primary"
-      (click)="login(txtUsernameOrEmail.value,txtPassword.value)">Giriş Yap</button>
+      (click)="login(txtUsernameOrEmail.value, txtPassword.value)">Giriş Yap</button>
   </div>
   <div class="col-md-3"></div>
 </div>
