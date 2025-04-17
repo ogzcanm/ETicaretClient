@@ -1,0 +1,43 @@
+<div class="row justify-content-center">
+    <div
+      class="card custom-card"
+      *ngFor="let product of products"
+    >
+      <img src="images/default.png" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{ product.name }}</h5>
+        <p class="card-text">
+          Fiyat: {{ product.price | currency:'₺' }} <br>
+          Stok: {{ product.stock }}
+        </p>
+        <a href="#" class="btn btn-success w-100">Sepete Ekle</a>
+      </div>
+    </div>
+  </div>
+  
+  <nav aria-label="Page navigation example" class="d-flex justify-content-center mt-4">
+    <ul class="pagination pagination-green">
+      <li class="page-item">
+        <a
+          class="page-link"
+          [routerLink]="['/products', currentPageNo - 1 <= 0 ? 1 : currentPageNo - 1]"
+        >Önceki</a>
+      </li>
+      <li
+        class="page-item"
+        *ngFor="let pageNo of pageList;"
+        routerLinkActive="active"
+      >
+        <a class="page-link" [routerLink]="['/products', pageNo]">
+          {{ pageNo }}
+        </a>
+      </li>
+      <li class="page-item">
+        <a
+          class="page-link"
+          [routerLink]="['/products', currentPageNo + 1 >= totalPageCount ? totalPageCount : currentPageNo + 1]"
+        >Sonraki</a>
+      </li>
+    </ul>
+  </nav>
+  

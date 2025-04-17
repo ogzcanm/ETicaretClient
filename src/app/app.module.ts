@@ -30,7 +30,12 @@ import { HttpErrorHandlerInterceptorService } from './services/common/http-error
     HttpClientModule,
     JwtModule.forRoot({
       config : {
-        tokenGetter : ()=> localStorage.getItem("accessToken"),
+        tokenGetter : () => {
+          if (typeof window !== 'undefined') {
+            return localStorage.getItem("accessToken");
+          }
+          return null;
+        },
         allowedDomains :["localhost:7021"]
       }
     }),

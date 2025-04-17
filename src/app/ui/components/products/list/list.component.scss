@@ -1,0 +1,32 @@
+.custom-card {
+    width: 15rem;
+    margin: 10px;
+    border: 1px solid #198754; /* Bootstrap yeşili */
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 128, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .custom-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 4px 16px rgba(0, 128, 0, 0.2);
+  }
+  
+  .pagination-green .page-link {
+    color: #198754;
+    border: 1px solid #198754;
+    margin: 0 3px;
+  }
+  
+  .pagination-green .page-item.active .page-link,
+  .pagination-green .page-link:hover {
+    background-color: #198754;
+    color: white;
+    border-color: #198754;
+  }
+  
+  .btn-success {
+    background-color: #198754;
+    border-color: #198754;
+  }
+  
