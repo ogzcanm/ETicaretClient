@@ -3,7 +3,8 @@
       class="card custom-card"
       *ngFor="let product of products"
     >
-      <img src="images/default.png" class="card-img-top" alt="...">
+      <img  *ngIf="!product.productImagesFiles.length" src="images/default.png" class="card-img-top" alt="...">
+      <img  *ngIf="product.productImagesFiles.length" src="{{baseUrl.url}}/{{product.imagePath}}" class="card-img-top" alt="...">
       <div class="card-body">
         <h5 class="card-title">{{ product.name }}</h5>
         <p class="card-text">

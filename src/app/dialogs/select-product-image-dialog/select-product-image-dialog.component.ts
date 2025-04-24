@@ -18,18 +18,18 @@ declare var $: any
   styleUrl: './select-product-image-dialog.component.scss'
 })
 export class SelectProductImageDialogComponent extends BaseDialog<SelectProductImageDialogComponent> implements OnInit {
-  
+
   @Output() options: Partial<FileUploadOptions>;
 
   constructor(
     dialogRef: MatDialogRef<SelectProductImageDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: SelectProductImageState | string,
-    private productService : ProductService,
-    private spinner : NgxSpinnerService,
-    private dialogService : DialogService
+    private productService: ProductService,
+    private spinner: NgxSpinnerService,
+    private dialogService: DialogService
   ) {
     super(dialogRef);
-    
+
     // options'i constructor içinde güncelliyoruz
     this.options = {
       accept: ".png, .jpg, .jpeg, .gif",
@@ -40,11 +40,11 @@ export class SelectProductImageDialogComponent extends BaseDialog<SelectProductI
       queryString: `id=${this.getDataString()}`
     };
   }
-  images : List_Product_Image[];
+  images: List_Product_Image[];
 
-  async ngOnInit(){
+  async ngOnInit() {
     this.spinner.show(SpinnerType.BallAtom);
-    this.images = await this.productService.readImages(this.data as string, ()=> this.spinner.hide(SpinnerType.BallAtom))
+    this.images = await this.productService.readImages(this.data as string, () => this.spinner.hide(SpinnerType.BallAtom))
 
   }
 
@@ -58,11 +58,17 @@ export class SelectProductImageDialogComponent extends BaseDialog<SelectProductI
         card.fadeOut(900, async () => {
           await this.productService.deleteImage(this.data as string, imageId, () => {
             card.remove();
-          this.spinner.hide(SpinnerType.BallAtom);
-        });
-      })
-    }
+            this.spinner.hide(SpinnerType.BallAtom);
+          });
+        })
+      }
     });
+  }
+  showCase(imageId: string) {
+    this.spinner.show(SpinnerType.BallAtom)
+    this.productService.changeShowCaseImage(imageId,this.data as string,()=>{
+      this.spinner.hide(SpinnerType.BallAtom)
+    })
   }
 
   // data'yı string'e dönüştüren bir yardımcı fonksiyon
