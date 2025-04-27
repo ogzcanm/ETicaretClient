@@ -11,7 +11,7 @@
           Fiyat: {{ product.price | currency:'₺' }} <br>
           Stok: {{ product.stock }}
         </p>
-        <a href="#" class="btn btn-success w-100">Sepete Ekle</a>
+        <a class="btn btn-success w-100" (click)="addToBasket(product)">Sepete Ekle</a>
       </div>
     </div>
   </div>

@@ -20,6 +20,7 @@ import { LoginModule } from './login/login.module';
     BasketsModule,
     RegisterModule,
     //LoginModule
-  ]
+  ],
+  exports:[BasketsModule]
 })
 export class ComponentsModule { }
