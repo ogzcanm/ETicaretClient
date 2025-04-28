@@ -1,10 +1,12 @@
-import { Component , OnInit} from '@angular/core';
+import { Component , OnInit, ViewChild} from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { CustomToastrService, ToastrMessageType, ToastrPosition } from './services/ui/custom-toastr.service';
 import { MessageType } from './services/admin/alertify.service';
 import { AuthService } from './services/common/auth.service';
 import { Router } from '@angular/router';
 import { HttpClientService } from './services/common/http-client.service';
+import { ComponentType, DynamicLoadComponentService } from './services/common/dynamic-load-component.service';
+import { DynamicLoadComponentDirective } from './directives/common/dynamic-load-component.directive';
 declare var $: any
 
 @Component({
@@ -14,32 +16,20 @@ declare var $: any
   styleUrl: './app.component.scss'
 })
 export class AppComponent implements OnInit {
+  @ViewChild(DynamicLoadComponentDirective,{static : true})
+  dynamicLoadComponentDirective : DynamicLoadComponentDirective;
+
   constructor(
     public authService : AuthService,
     private toastrService : CustomToastrService,
     private router : Router,
-    private httpClientService : HttpClientService
+    private httpClientService : HttpClientService,
+    private dynamicLoadComponentService : DynamicLoadComponentService
   ){
-
-    // httpClientService.put({
-    //   controller:"baskets"
-
-    // },{
-    //   basketItemId : "01966d50-65be-7d29-aae5-4ef53922a58e",
-    //   Quantity: 100
-    // }).subscribe(data =>{
-    //   debugger;
-    // });
-
-
-
-
     authService.identityCheck();
   }
   ngOnInit(): void {
-
   }
-
   signOut(){
     localStorage.removeItem("accessToken");
     this.authService.identityCheck();
@@ -52,6 +42,11 @@ export class AppComponent implements OnInit {
       messageType : ToastrMessageType.Success,
       position : ToastrPosition.TopRight
     })
+  }
+
+  loadComponent(){
+    this.dynamicLoadComponentService.loadComponent(ComponentType.BasketComponent,
+      this.dynamicLoadComponentDirective.viewContaierRef)
   }
 }
 
