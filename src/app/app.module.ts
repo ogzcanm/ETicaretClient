@@ -46,6 +46,7 @@ import { DynamicLoadComponentDirective } from './directives/common/dynamic-load-
     ],
   providers: [
     {provide : "baseUrl", useValue:"https://localhost:7021/api",multi:true},
+    {provide : "baseSignalRUrl", useValue:"https://localhost:7021/",multi:true},
     
     provideClientHydration(withEventReplay()),
     {
