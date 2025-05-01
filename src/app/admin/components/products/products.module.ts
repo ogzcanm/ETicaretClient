@@ -14,13 +14,13 @@ import { DeleteDirective } from '../../../directives/admin/delete.directive';
 import {MatDialogModule} from '@angular/material/dialog';
 import { FileUploadModule } from '../../../services/common/file-upload/file-upload.module';
 import { DialogModule } from '../../../dialogs/dialog.module';
+import { DeleteModule } from '../../../directives/admin/delete.module';
 
 @NgModule({
   declarations: [
     ProductsComponent,
     CreateComponent,
     ListComponent,
-    DeleteDirective,
   ],
   imports: [
     CommonModule,
@@ -34,7 +34,8 @@ import { DialogModule } from '../../../dialogs/dialog.module';
     MatTableModule,
     MatPaginatorModule,
     DialogModule,
-    FileUploadModule
+    FileUploadModule,
+    DeleteModule
   ]
 })
 export class ProductsModule { }
