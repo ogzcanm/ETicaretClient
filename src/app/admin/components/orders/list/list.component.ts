@@ -10,6 +10,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { SelectProductImageDialogComponent } from '../../../../dialogs/select-product-image-dialog/select-product-image-dialog.component';
 import { List_Order } from '../../../../contracts/order/list_order';
 import { OrderService } from '../../../../services/common/models/order.service';
+import { OrderDetailDialogComponent, OrderDetailDialogState } from '../../../../dialogs/order-detail-dialog/order-detail-dialog.component';
 
 @Component({
   selector: 'app-list',
@@ -20,12 +21,13 @@ import { OrderService } from '../../../../services/common/models/order.service';
 export class ListComponent extends BaseComponent{
   constructor(spinner : NgxSpinnerService,
       private alertifyService:AlertifyService,
-      private orderService : OrderService
+      private orderService : OrderService,
+      private dialogService : DialogService
     ){
       super(spinner)
     }
   
-    displayedColumns: string[] = ['orderCode','userName','totalPrice','createdDate','delete'];
+    displayedColumns: string[] = ['orderCode','userName','totalPrice','createdDate','viewdetail','delete'];
     dataSource : MatTableDataSource<List_Order> = null;
     @ViewChild(MatPaginator) paginator: MatPaginator;
   
@@ -48,5 +50,14 @@ export class ListComponent extends BaseComponent{
   
     async ngOnInit(){
       await this.getOrders();
+    }
+    showDetail(id:string){
+      this.dialogService.openDialog({
+        componentType : OrderDetailDialogComponent,
+        data : id,
+        options:{
+          width : "750px"
+        }
+      })
     }
 }
