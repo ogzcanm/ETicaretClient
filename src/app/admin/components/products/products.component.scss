@@ -1,9 +1,11 @@
 .product-create {
-  width: 99%;
-  height: 500pt;
-  margin: 10px;
-  border: 1px solid #555;
-  /* The background property is added to clearly distinguish the borders between drawer and main
-     content */
-  background: #eee;
+  width: 100%;
+  min-height: 400px;
+  margin: 16px;
+  padding: 24px;
+  background-color: #f9f9f9;
+  border: 1px solid #e0e0e0; /* Hafif ve modern bir border */
+  border-radius: 12px;        /* Köşeler yumuşak */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04); /* Kenarlık efekti yerine hafif gölge */
+  box-sizing: border-box;
 }

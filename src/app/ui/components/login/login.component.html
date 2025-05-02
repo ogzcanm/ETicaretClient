@@ -1,4 +1,4 @@
-<div class="row">
+<!-- <div class="row">
   <div class="col-md-3"></div>
   <div class="col-md-6">
 
@@ -15,12 +15,9 @@
         placeholder="Şifre">
     </div>
 
-    <!-- Container for Google and Facebook buttons, aligned to the left -->
     <div class="d-flex" style="gap: 10px; align-items: center;">
-      <!-- Google Sign-In Button -->
       <asl-google-signin-button data-use_fedcm_for_prompt="true"></asl-google-signin-button>
 
-      <!-- Facebook Icon -->
       <img src="images/facebook-icon.png" style="width: 30px; height: 30px; cursor: pointer;" (click)="facebookLogin()">
     </div>
 
@@ -29,4 +26,79 @@
       (click)="login(txtUsernameOrEmail.value, txtPassword.value)">Giriş Yap</button>
   </div>
   <div class="col-md-3"></div>
+</div> -->
+
+
+<!-- styles.css veya component CSS'ine eklenebilir -->
+<style>
+  .login-container {
+    background-color: #f8f9fa;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-top: 50px;
+  }
+
+  .login-container .form-label {
+    font-weight: 600;
+  }
+
+  .login-container input {
+    border-radius: 8px;
+  }
+
+  .login-container button.btn-primary {
+    border-radius: 8px;
+    background-color: #198754;
+    border-color: #198754;
+  }
+
+  .login-container button.btn-primary:hover {
+    background-color: #157347;
+    border-color: #157347;
+  }
+
+  .social-login-icons img {
+    transition: transform 0.2s;
+  }
+
+  .social-login-icons img:hover {
+    transform: scale(1.1);
+  }
+</style>
+
+<!-- Form Alanı -->
+<div class="row justify-content-center">
+  <div class="col-md-6">
+    <div class="login-container">
+
+      <!-- Kullanıcı Adı / Email -->
+      <div class="form-group mb-3">
+        <label for="username" class="form-label">Kullanıcı Adı & Email</label>
+        <input #txtUsernameOrEmail type="text" formControlName="username" class="form-control" id="username"
+               placeholder="Kullanıcı Adı ya da Email giriniz.">
+        <small class="form-text text-muted invalid-feedback">Lütfen kullanıcı adını boş geçmeyiniz.</small>
+      </div>
+
+      <!-- Şifre -->
+      <div class="form-group mb-4">
+        <label for="password" class="form-label">Şifre</label>
+        <input #txtPassword type="password" formControlName="password" class="form-control" id="password"
+               placeholder="Şifre">
+      </div>
+
+      <!-- Sosyal Giriş -->
+      <div class="d-flex align-items-center gap-3 mb-4 social-login-icons">
+        <asl-google-signin-button data-use_fedcm_for_prompt="true"></asl-google-signin-button>
+        <img src="images/facebook-icon.png" style="width: 32px; height: 32px; cursor: pointer;" (click)="facebookLogin()">
+      </div>
+
+      <!-- Giriş Yap Butonu -->
+      <button type="submit" class="btn btn-primary w-100"
+              (click)="login(txtUsernameOrEmail.value, txtPassword.value)">
+        Giriş Yap
+      </button>
+
+    </div>
+  </div>
 </div>

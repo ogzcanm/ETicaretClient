@@ -1,13 +1,36 @@
 :host {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: stretch;
+  gap: 16px;
+  max-width: 400px;
+  padding: 24px;
+  background: #fafafa;
+  border: 1px solid #e0e0e0; /* Çerçeve eklendi */
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
-.product-create{
-    margin: 5px 5px 5px
+/* Form alanları */
+.product-create {
+  width: 100%;
 }
 
-.btn{
-    margin: 5px 5px 5px 
+/* Angular Material form alanlarını modernleştir */
+::ng-deep .mat-form-field {
+  width: 100%;
+  background-color: #fff;
+  border-radius: 8px;
+  padding-right: 8px;
+}
+
+/* Buton için */
+.btn {
+  align-self: flex-end;
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-weight: 500;
+  text-transform: capitalize;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
 }

@@ -1,4 +1,4 @@
-<div class="row">
+<!-- <div class="row">
     <div class="col-md-2"></div>
     <div class="col-md-8">
         <nav class="navbar navbar-expand-lg bg-light shadow-sm">
@@ -23,7 +23,6 @@
 
                         </div>
                     </ul>
-                    <!-- Kullanıcı Bağlantıları - Sağ Tarafa Hizalama -->
                     <div class="d-flex ms-auto">
                         <ul class="navbar-nav">
                             <li class="nav-item">
@@ -63,9 +62,114 @@
 <ngx-spinner size="default" name="s2" type="ball-atom"></ngx-spinner>
 <ngx-spinner size="default" name="s3" type="ball-scale-multiple"></ngx-spinner>
 
-<!-- <app-baskets></app-baskets> -->
 <div class="modal fade" id="basketModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-xl">
         <ng-template appDynamicLoadComponent></ng-template>
     </div>
+</div> -->
+
+<!-- styles.css veya component stil dosyasına ekle -->
+<style>
+  .btn-outline-success:hover,
+  .btn-outline-primary:hover,
+  .nav-link:hover {
+    background-color: #198754 !important;
+    border-color: #198754 !important;
+    color: white !important;
+    border-radius: 5px;
+  }
+
+  .navbar {
+    background-color: #f8f9fa !important; /* grimsi arka plan */
+  }
+
+  .nav-link i {
+    margin-right: 4px;
+  }
+</style>
+
+<div class="row">
+  <div class="col-12">
+    <nav class="navbar navbar-expand-lg shadow-sm w-100">
+      <div class="container-fluid">
+
+        <!-- Logo -->
+        <a class="navbar-brand brand-green" routerLink="">Alverium</a>
+
+        <!-- Mobil Buton -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navbar İçeriği -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+          <!-- Sol Menü -->
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" routerLink="">AnaSayfa</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" routerLink="products">Ürünler</a>
+            </li>
+          </ul>
+
+          <!-- Sağ Menü -->
+          <ul class="navbar-nav ms-auto align-items-center">
+
+            <!-- Sepet Butonu -->
+            <li class="nav-item me-2">
+              <button class="btn btn-outline-success d-flex align-items-center" data-bs-toggle="modal"
+                      data-bs-target="#basketModal" (click)="loadComponent()" type="submit">
+                <i class="bi bi-cart3 me-1"></i> Sepet
+              </button>
+            </li>
+
+            <!-- Giriş / Kayıt -->
+            <li class="nav-item" *ngIf="!authService.isAuthenticated">
+              <a class="nav-link active" routerLink="register">Kayıt Ol</a>
+            </li>
+            <li class="nav-item" *ngIf="!authService.isAuthenticated">
+              <a class="nav-link active d-flex align-items-center" routerLink="login">
+                <i class="bi bi-person me-1"></i> Giriş Yap
+              </a>
+            </li>
+
+            <!-- Çıkış -->
+            <li class="nav-item" *ngIf="authService.isAuthenticated">
+              <a class="nav-link text-danger" style="cursor: pointer;" (click)="signOut()">Çıkış Yap</a>
+            </li>
+
+            <!-- Yönetim Paneli -->
+            <li class="nav-item" *ngIf="authService.isAuthenticated">
+              <a routerLink="admin" class="btn btn-outline-primary ms-2">Yönetim Paneli</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<!-- Sayfa İçeriği -->
+<div class="row">
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+    <router-outlet></router-outlet>
+  </div>
+  <div class="col-md-2"></div>
+</div>
+
+<!-- Spinner -->
+<ngx-spinner size="default" name="s1" type="ball-spin-clockwise-fade-rotating"></ngx-spinner>
+<ngx-spinner size="default" name="s2" type="ball-atom"></ngx-spinner>
+<ngx-spinner size="default" name="s3" type="ball-scale-multiple"></ngx-spinner>
+
+<!-- Sepet Modal -->
+<div class="modal fade" id="basketModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    <ng-template appDynamicLoadComponent></ng-template>
+  </div>
 </div>

@@ -1,4 +1,4 @@
-<h2 mat-dialog-title>Sipariş Detayları</h2>
+<!-- <h2 mat-dialog-title>Sipariş Detayları</h2>
 <mat-dialog-content class="mat-typography">
 
     <mat-toolbar>
@@ -7,26 +7,21 @@
 
 
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 order-detail-table">
-
-        <!-- Name Column -->
         <ng-container matColumnDef="name">
             <th mat-header-cell *matHeaderCellDef>Ürün Adı</th>
             <td mat-cell *matCellDef="let element">{{element.name}}</td>
         </ng-container>
 
-        <!-- Price Column -->
         <ng-container matColumnDef="price">
             <th mat-header-cell *matHeaderCellDef>Ücret</th>
             <td mat-cell *matCellDef="let element">{{element.price | currency : '₺'}}</td>
         </ng-container>
 
-        <!-- Quantity Column -->
         <ng-container matColumnDef="quantity">
             <th mat-header-cell *matHeaderCellDef>Adet</th>
             <td mat-cell *matCellDef="let element">{{element.quantity}}</td>
         </ng-container>
 
-        <!-- TotalPrice Column -->
         <ng-container matColumnDef="totalPrice">
             <th mat-header-cell *matHeaderCellDef>Ara Toplam</th>
             <td mat-cell *matCellDef="let element" style="color:red;">{{element.price * element.quantity | currency : '₺'}}</td>
@@ -66,4 +61,70 @@
 <mat-dialog-actions align="end">
     <button mat-button mat-dialog-close>Kapat</button>
     <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Siparişi Tamamla</button>
+</mat-dialog-actions> -->
+
+
+<h2 mat-dialog-title class="dialog-title">Sipariş Detayları</h2>
+
+<mat-dialog-content class="mat-typography order-dialog-content">
+  <mat-toolbar color="primary" class="order-toolbar">
+    <span>Sipariş No : {{singleOrder.orderCode}}</span>
+  </mat-toolbar>
+
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 order-detail-table">
+
+    <!-- Ürün Adı -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Ürün Adı</th>
+      <td mat-cell *matCellDef="let element">{{element.name}}</td>
+    </ng-container>
+
+    <!-- Ücret -->
+    <ng-container matColumnDef="price">
+      <th mat-header-cell *matHeaderCellDef>Ücret</th>
+      <td mat-cell *matCellDef="let element">{{element.price | currency : '₺'}}</td>
+    </ng-container>
+
+    <!-- Adet -->
+    <ng-container matColumnDef="quantity">
+      <th mat-header-cell *matHeaderCellDef>Adet</th>
+      <td mat-cell *matCellDef="let element">{{element.quantity}}</td>
+    </ng-container>
+
+    <!-- Ara Toplam -->
+    <ng-container matColumnDef="totalPrice">
+      <th mat-header-cell *matHeaderCellDef>Ara Toplam</th>
+      <td mat-cell *matCellDef="let element" class="subtotal">
+        {{element.price * element.quantity | currency : '₺'}}
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row 
+        *matRowDef="let row; columns: displayedColumns;"
+        [class.order-detail-row-is-clicked]="clickedRows.has(row)">
+    </tr>
+  </table>
+
+  <div class="order-summary">
+    <div class="summary-line">
+      <strong>Toplam Fiyat:</strong>
+      <span class="total-price">{{totalPrice | currency : '₺'}}</span>
+    </div>
+    <div class="summary-line">
+      <strong>Adres:</strong>
+      <span>{{singleOrder.adress}}</span>
+    </div>
+    <div class="summary-line">
+      <strong>Açıklama:</strong>
+      <span>{{singleOrder.description}}</span>
+    </div>
+  </div>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-stroked-button mat-dialog-close color="warn">Kapat</button>
+  <button mat-flat-button color="primary" [mat-dialog-close]="data" cdkFocusInitial>
+    Siparişi Tamamla
+  </button>
 </mat-dialog-actions>

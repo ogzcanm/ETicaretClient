@@ -10,3 +10,48 @@
   .admin-left{
     width: 230px;
   }
+
+  /* Drawer (sidebar) alanı */
+.admin-left {
+  background-color: #ffffff;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.05);
+  padding-top: 20px;
+  width: 220px;
+  border-right: 1px solid #e0e0e0;
+}
+
+/* Drawer Container */
+.admin-container {
+  height: 100vh;
+  background-color: #f9f9f9;
+}
+
+/* İçerik alanı */
+mat-drawer-content {
+  padding: 20px 30px;
+  background-color: #f4f6f8;
+  min-height: 100vh;
+}
+
+/* Responsive kırılımda üstten taşma olmasın */
+mat-drawer-container {
+  margin-top: 64px; /* header yüksekliği kadar boşluk bırak */
+}
+
+/* Footer boşluk dengesi */
+app-footer {
+  margin-top: auto;
+  background-color: #ffffff;
+  border-top: 1px solid #ddd;
+  padding: 12px 24px;
+  text-align: center;
+  font-size: 14px;
+  color: #666;
+}
+app-header {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  background-color: #fff;
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+}
