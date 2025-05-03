@@ -1,0 +1,34 @@
+  .login-container {
+    background-color: #f8f9fa;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-top: 50px;
+  }
+
+  .login-container .form-label {
+    font-weight: 600;
+  }
+
+  .login-container input {
+    border-radius: 8px;
+  }
+
+  .login-container button.btn-primary {
+    border-radius: 8px;
+    background-color: #198754;
+    border-color: #198754;
+  }
+
+  .login-container button.btn-primary:hover {
+    background-color: #157347;
+    border-color: #157347;
+  }
+
+  .social-login-icons img {
+    transition: transform 0.2s;
+  }
+
+  .social-login-icons img:hover {
+    transform: scale(1.1);
+  }
