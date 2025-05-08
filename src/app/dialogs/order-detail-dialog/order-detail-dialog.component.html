@@ -124,7 +124,7 @@
 
 <mat-dialog-actions align="end">
   <button mat-stroked-button mat-dialog-close color="warn">Kapat</button>
-  <button mat-flat-button color="primary" [mat-dialog-close]="data" cdkFocusInitial>
+  <button mat-flat-button color="primary" [mat-dialog-close]="data" cdkFocusInitial (click)="completeOrder()" *ngIf="!singleOrder.completed">
     Siparişi Tamamla
   </button>
 </mat-dialog-actions>

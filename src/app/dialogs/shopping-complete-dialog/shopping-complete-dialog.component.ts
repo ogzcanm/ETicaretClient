@@ -10,7 +10,7 @@ declare var $: any;
   templateUrl: './shopping-complete-dialog.component.html',
   styleUrl: './shopping-complete-dialog.component.scss'
 })
-export class ShoppingCompleteDialogComponent extends BaseDialog<ShoppingCompleteDialogComponent> {
+export class ShoppingCompleteDialogComponent extends BaseDialog<ShoppingCompleteDialogComponent> implements OnDestroy{
   constructor(
     dialogRef: MatDialogRef<ShoppingCompleteDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: ShoppingCompleteState,
@@ -18,7 +18,15 @@ export class ShoppingCompleteDialogComponent extends BaseDialog<ShoppingComplete
   ) {
     super(dialogRef);
   }
+  show: boolean = false;
+  complete() {
+    this.show = true;
+  }
 
+  ngOnDestroy(): void {
+    if (!this.show)
+      $("#basketModal").modal("show");
+  }
 }
 
 export enum ShoppingCompleteState {
