@@ -1,0 +1,9 @@
+<h2 mat-dialog-title> {{data.name}} Rol Atama!</h2>
+<mat-dialog-content>
+  <p> Aşağıdan rol atayabilirsiniz!</p>
+  <div matBadge="4" matBadgeOverlap="false"></div>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="close()">İptal</button>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Evet</button>
+</mat-dialog-actions>
