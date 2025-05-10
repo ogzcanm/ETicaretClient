@@ -53,7 +53,7 @@ export class DeleteDirective {
             height: "toogle"
           }, 700, () => {
             this.callback.emit();
-            this.alertifyService.message("Ürün Başarıyla Silinmiştir", {
+            this.alertifyService.message(`${this.controller == 'roles' ? "Rol" : "Ürün"} Başarıyla Silinmiştir`, {
               dismissOthers: true,
               messageType: MessageType.Success,
               position: Position.TopRight,
@@ -71,17 +71,4 @@ export class DeleteDirective {
       }
     });
   }
-
-  // openDialog(afterClosed:any): void {
-  //   const dialogRef = this.dialog.open(DeleteDialogComponent, {
-  //     width:'250px',
-  //     data: DeleteState.Yes,
-  //   });
-
-  //   dialogRef.afterClosed().subscribe(result => {
-  //     if(result == DeleteState.Yes){
-  //       afterClosed();
-  //     }
-  //   });
-  // }
 }
